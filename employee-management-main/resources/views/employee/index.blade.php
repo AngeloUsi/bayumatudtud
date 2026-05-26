@@ -19,14 +19,14 @@
         <a href="{{ route('employee.create') }}" class="btn btn-info">Add New Employee</a>
         <div class="row">
 
-       
+
                 <div class="card-head">
-                     
+
                 </div>
 
                 <div class="card-body">
 
-                    
+
 
                     <table class="table table-bordered table-stiped fs-1 text-black">
 
@@ -45,28 +45,31 @@
                         <tbody  >
                             @foreach ($employees as )
                             <tr>
-                                
-                                {{-- <td class="">{{$items->}}</td>
-                                <td>{{$items}}</td>
-                                <td>{{$items}}</td>
-                                <td>{{$items}}</td>
-                                <td>{{$items}}</td>
-                                <td>{{$items}}</td>
-                                <td>{{$items}}</td> --}}
-                                
-                                
+
+
+                                <td class="">{{$items->id}}</td>
+                                <td>{{$items->fname}}</td>
+                                <td>{{$items->lname}}</td>
+                                <td>{{$items->mnidame}}</td>
+                                <td>{{$items->age}}</td>
+                                <td>{{$items->address}}</td>
+                                <td>{{$items->zip}}</td>
+
+<a href="{{ route('employee.edit', $items->id) }}" class="btn btn-primary">Edit</a>
+<a href="{{ route('employee.delete', $items->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
+
                             </tr>
                             @endforeach
                         </tbody>
 
                     </table>
                 </div>
-                    
+
 
                 <div class="card-footer">
-                    
+
                 </div>
-             
+
 
             <!-- /.row -->
         </div><!-- /.container-fluid -->
