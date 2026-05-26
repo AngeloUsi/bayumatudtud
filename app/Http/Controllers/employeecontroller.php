@@ -33,7 +33,7 @@ class employeecontroller extends Controller
     ]);
 
     employee::create($request->all());
-    return view ('employee.create', compact('employees'))->with('status','Employee Added Successfully!');
+    return redirect (route('employee.index'))->with('status','Employee Created');
     }
 
     public function edit( int $id)
@@ -55,7 +55,7 @@ class employeecontroller extends Controller
             ]);
 
             employee::findOrFail($id)->update($request->all());
-            return redirect (route('employee.index'))->with('status','Employee Updated Successfully!');
+            return redirect (route('employee.index'))->with('status','Employee Deleted');
             }
     }
 
