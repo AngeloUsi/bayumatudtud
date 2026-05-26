@@ -33,12 +33,12 @@ class employeecontroller extends Controller
     ]);
 
     employee::create($request->all());
-    return view ('employee.create');
+    return view ('employee.create', compact('employees'))->with('status','Employee Added Successfully!');
     }
 
     public function edit( int $id)
     {
-        $employees = employee::find($id);
+       $employees = employee::findOrFail($id);
         return view ('employee.edit', compact('employees'));
     }
 
@@ -55,13 +55,13 @@ class employeecontroller extends Controller
             ]);
 
             employee::findOrFail($id)->update($request->all());
-            return redirect ()->back()->with('status','Employee Updated Successfully!');
+            return redirect (route('employee.index'))->with('status','Employee Updated Successfully!');
             }
     }
 
     public function delete(int $id){
         $employees = employee::findOrFail($id);
-        $employees->deete();
-        return redirect ()->back()->with('status','Employee Deleted');
+        $employees->delete();
+        return redirect (route('employee.index'))->with('status','Employee Deleted');
     }
 }

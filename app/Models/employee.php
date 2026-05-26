@@ -10,7 +10,7 @@ class employee extends Model
     use HasFactory;
     //gawa muna table ha bago migrate
     protected $table = 'employee_tb_';
-    protected $primarykey = 'id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'fname',
         'lname',

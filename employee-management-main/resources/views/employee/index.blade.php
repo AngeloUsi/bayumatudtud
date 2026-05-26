@@ -43,20 +43,23 @@
                         </thead>
 
                         <tbody  >
-                            @foreach ($employees as )
+                            @foreach ($employees as $items)
                             <tr>
-
 
                                 <td class="">{{$items->id}}</td>
                                 <td>{{$items->fname}}</td>
                                 <td>{{$items->lname}}</td>
-                                <td>{{$items->mnidame}}</td>
+                                <td>{{$items->midname}}</td>
                                 <td>{{$items->age}}</td>
                                 <td>{{$items->address}}</td>
                                 <td>{{$items->zip}}</td>
+                                 <td>
+                                    <span class="badge bg-success"><a href="{{  route('employee.edit', $items->id)}}" class="btn btn-success mx-3  "><h5>Edit</h5></a></span>
+                                </td>
+                                <td>
 
-<a href="{{ route('employee.edit', $items->id) }}" class="btn btn-primary">Edit</a>
-<a href="{{ route('employee.delete', $items->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
+                                <span class="badge bg-danger"><a href="{{  route('employee.delete', $items->id)}}" class="m-3 p-lg-5"><h5>Delete</h5></a></span>
+                                </td>
 
                             </tr>
                             @endforeach
